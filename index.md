@@ -6,7 +6,7 @@ Mentors: [Luboslav Pivarc,](https://github.com/xpivarc?tab=overview&from=2023-12
 
 Organization: KubeVirt
 
-Project: [Project link](https://summerofcode.withgoogle.com/programs/2026/projects/6mDtvgRu)
+Project: ![](https://www.google.com/s2/favicons?domain=summerofcode.withgoogle.com) [Google Summer of Code](https://summerofcode.withgoogle.com/programs/2026/projects/6mDtvgRu)
 
 ## Introduction
 
