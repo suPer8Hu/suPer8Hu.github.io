@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/e42cd6d4-06c1-4465-9690-93a5a025e065" alt="kubevirt" style="max-width: 100%; border-radius: 6px;" />
-</p>
-
 # GSoC 2026 Kubevirt :Migrating KubeVirt virt-api to k8s.io/apiserver (GenericAPIServer)
 
 Contributor: Changlin Hu 
