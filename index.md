@@ -6,7 +6,7 @@ Mentors: [Luboslav Pivarc,](https://github.com/xpivarc?tab=overview&from=2023-12
 
 Organization: KubeVirt
 
-Project: https://summerofcode.withgoogle.com/programs/2026/projects/6mDtvgRu
+Project: [Project link]<https://summerofcode.withgoogle.com/programs/2026/projects/6mDtvgRu>
 
 ## Introduction
 
@@ -59,9 +59,9 @@ After migration the same business handlers sit behind GenericAPIServer’s stand
 
 ## Key Contributions
 
-1. GenericAPIServer skeleton (pkg/virt-api/apiserver) https://github.com/kubevirt/kubevirt/pull/18607
+1. GenericAPIServer skeleton (pkg/virt-api/apiserver) <https://github.com/kubevirt/kubevirt/pull/18607>
     
-    Ref: **inspired by virt-template / sample-apiserver** https://github.com/kubevirt/virt-template
+    Ref: **inspired by virt-template / sample-apiserver** <https://github.com/kubevirt/virt-template>
     Before moving endpoints, we needed a server object that could:
     
     - Install [subresources.kubevirt.io](http://subresources.kubevirt.io/) API groups for v1 and v1alpha3
@@ -71,24 +71,24 @@ After migration the same business handlers sit behind GenericAPIServer’s stand
     - Mark long-running connections so streaming is not killed by request timeouts
     - Expose /livez / /readyz for Deployment probes while preserving KubeVirt’s config-aware /healthz semantics where needed
     - This scaffolding made later PRs incremental: each endpoint migration was “add Storage + delete legacy route,” not “redesign the server again.”
-2. Endpoint migration https://github.com/kubevirt/kubevirt/pull/18607
+2. Endpoint migration <https://github.com/kubevirt/kubevirt/pull/18607>
 Most subresources mapped cleanly to rest.Connecter (PUT/GET with options / streaming upgrade) or rest.Getter (e.g. expand-spec). Please check the details in the route mapping table below: 
     
     [https://docs.google.com/document/d/1J6hVxM6Do_fETraCEZhQ7ajJJGvFxHo1FclD7906I9Q/edit?tab=t.0#heading=h.bxhy1037jheq](https://docs.google.com/document/d/1J6hVxM6Do_fETraCEZhQ7ajJJGvFxHo1FclD7906I9Q/edit?tab=t.0#heading=h.bxhy1037jheq)
     
     Webhooks stayed as the same admitter functions, but registration moved from http.HandleFunc on the default mux to WithMuxHandlers on NonGoRestfulMux.
     
-3. Cleanup and package layout https://github.com/kubevirt/kubevirt/pull/18607
+3. Cleanup and package layout <https://github.com/kubevirt/kubevirt/pull/18607>
 After routes lived on GenericAPIServer I removed legacy pieces
     - Removed composeSubresources() as the primary registration path
     - Dropped the temporary legacy bridge once /healthz and /metrics were on GenericAPIServer
     - Cleaned custom authorizer / dialer / expand / streamer leftovers from pkg/virt-api/rest where no longer needed
     - Reorganized code so each feature’s Connecter sits next to its logic (storage/virtualmachine/..., storage/virtualmachineinstance/..., apiserver/cluster/...) while shared streaming stays in pkg/virt-api/streaming
-4. Authn/authz tests (follow-up PR: https://github.com/kubevirt/kubevirt/pull/18823)
+4. Authn/authz tests (follow-up PR: <https://github.com/kubevirt/kubevirt/pull/18823>)
     - Unit: drive the real GenericAPIServer filter order with fake delegated authn/authz; assert 401/403 vs AlwaysAllow bypass, including the resource-request AlwaysAllow case
     - Functional: port-forward to a virt-api pod :8443 and send HTTPS directly, bypassing the aggregator, so virt-api’s own filters are under test
     
-    I also evaluated lyarwood’s envtest controller harness (#18726): https://github.com/kubevirt/kubevirt/pull/18726
+    I also evaluated lyarwood’s envtest controller harness (#18726): <https://github.com/kubevirt/kubevirt/pull/18726>
     
     It is a useful pattern (real apiserver without a full cluster) but aimed at VM/VMI controllers, not aggregated virt-api + requestheader CA. A third layer (envtest as TokenReview/SAR backend + in-process virt-api) remains an open mentor question.
     
