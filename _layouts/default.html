@@ -8,17 +8,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 </head>
 <body>
-  <header class="page-header" role="banner">
-    <img src="https://github.com/user-attachments/assets/e42cd6d4-06c1-4465-9690-93a5a025e065" alt="kubevirt" style="max-width:500px; width:100%; margin-bottom:1.5rem; border-radius:6px;">
-    <h1 class="project-name">{{ page.title | default: site.title }}</h1>
-    <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-    {% if site.github.is_project_page %}
-      <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-    {% endif %}
-    {% if site.show_downloads %}
-      <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
-      <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
-    {% endif %}
+  <header class="page-header" role="banner" style="padding-bottom: 2rem;">
+    <img src="https://github.com/user-attachments/assets/e42cd6d4-06c1-4465-9690-93a5a025e065" alt="kubevirt" style="max-width:600px; width:100%; border-radius:6px;">
   </header>
 
   <main id="content" class="main-content" role="main">
