@@ -1,3 +1,7 @@
 theme: jekyll-theme-cayman
 title: GSoC 2026
 description: Migrating KubeVirt virt-api to k8s.io/apiserver
+
+kramdown:
+  input: GFM
+  hard_wrap: false
