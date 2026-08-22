@@ -6,7 +6,7 @@ Mentors: [Luboslav Pivarc,](https://github.com/xpivarc?tab=overview&from=2023-12
 
 Organization: KubeVirt
 
-Project: [Project link]<https://summerofcode.withgoogle.com/programs/2026/projects/6mDtvgRu>
+Project: [Project link](https://summerofcode.withgoogle.com/programs/2026/projects/6mDtvgRu)
 
 ## Introduction
 
@@ -61,7 +61,7 @@ After migration the same business handlers sit behind GenericAPIServer’s stand
 
 1. GenericAPIServer skeleton (pkg/virt-api/apiserver) <https://github.com/kubevirt/kubevirt/pull/18607>
     
-    Ref: **inspired by virt-template / sample-apiserver** <https://github.com/kubevirt/virt-template>
+    Ref: inspired by virt-template / sample-apiserver <https://github.com/kubevirt/virt-template>
     Before moving endpoints, we needed a server object that could:
     
     - Install [subresources.kubevirt.io](http://subresources.kubevirt.io/) API groups for v1 and v1alpha3
